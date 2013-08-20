@@ -1,0 +1,6 @@
+index.php
+assets/
+protected/runtime/
+protected/yiic.php
+/framework/
+themes/classic/views/
