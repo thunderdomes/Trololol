@@ -5,7 +5,26 @@ class ApiController extends Controller
 	public function actionIndex()
 	{
 		header('Content-Type: application/json');
-		$models = Post::model()->findAll();
+		
+		$criteria = new CDbCriteria();
+		
+		$count=Post::model()->count($criteria);
+		$pages=new CPagination($count);
+
+		// results per page
+		$curentPage = @$_GET['page'];
+		if($curentPage=='' or $curentPage < 1){
+			$curentPage = 0;
+		}
+		else{
+			$curentPage --;
+		}
+		
+		$pages->currentPage=$curentPage ;
+		$pages->pageSize=10;
+		$pages->applyLimit($criteria);
+		$models=Post::model()->findAll($criteria);
+		
 		echo CJSON::encode($models);
 	}
 
