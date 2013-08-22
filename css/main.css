@@ -3,7 +3,7 @@ body
 	margin: 0;
 	padding: 0;
 	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
+	font-family: 'Varela', sans-serif;
 	background: #EFEFEF;
 }
 
@@ -226,4 +226,25 @@ div.search-form
 .operations li a:hover
 {
 	background: #80CFFF;
+}
+.front{
+	width: 1140px;
+	padding: 10px;
+	margin-top: 60px;
+}
+.front .post{
+	width: 725px;
+	padding: 20px;
+	margin-bottom: 20px;
+	background: #fff;
+}
+.front .post h2{
+	font-size: 32px;
+	line-height: 18px;
+	margin-top: 0px;
+}
+.front .post img{
+	width: 683px;
+	border: 1px solid #ccc;
+	margin-top: 10px;
 }

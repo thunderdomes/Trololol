@@ -10,6 +10,7 @@
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.min.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
@@ -18,32 +19,27 @@
 </head>
 
 <body>
-
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-
+ <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+<div class="container front">
 	<?php echo $content; ?>
-
 	<div class="clear"></div>
 
 	<div id="footer">
