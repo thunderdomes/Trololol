@@ -35,10 +35,14 @@ body
 #footer
 {
 	padding: 10px;
-	margin: 10px 20px;
-	font-size: 0.8em;
-	text-align: center;
-	border-top: 1px solid #C9E0ED;
+margin: 10px 20px;
+display: block;
+font-size: .8em;
+text-align: center;
+border-top: 1px solid #c9e0ed;
+float: left;
+width: 100%;
+}
 }
 
 #logo
@@ -235,11 +239,12 @@ div.search-form
 .front .post{
 	width: 725px;
 	padding: 20px;
+	float: left;
 	margin-bottom: 20px;
 	background: #fff;
 }
 .front .post h2{
-	font-size: 32px;
+	font-size: 24px;
 	line-height: 18px;
 	margin-top: 0px;
 }
@@ -247,4 +252,19 @@ div.search-form
 	width: 683px;
 	border: 1px solid #ccc;
 	margin-top: 10px;
+}
+.front .sidebar{
+	float: right;
+	min-height: 100px;
+	background: #000;
+	width: 380px;
+	position: fixed;
+	margin-left: 735px;
+  	margin-top: 0px;
+}
+.infinite_navigation{
+	display: block;
+	float: left;
+	width: 683px;
+
 }
