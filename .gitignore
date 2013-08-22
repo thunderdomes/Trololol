@@ -2,5 +2,5 @@
 /framework
 /protected/runtime
 /protected/config/main.php
-index.php
+/index.php
 .DS_Store 
