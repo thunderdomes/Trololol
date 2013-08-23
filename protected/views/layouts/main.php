@@ -14,6 +14,11 @@
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.min.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<?php  
+  $baseUrl = Yii::app()->baseUrl; 
+  $cs = Yii::app()->getClientScript();
+  $cs->registerScriptFile($baseUrl.'/js/netra.min.js');
+	?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
