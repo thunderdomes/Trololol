@@ -25,7 +25,50 @@ class ApiController extends Controller
 		$pages->applyLimit($criteria);
 		$models=Post::model()->findAll($criteria);
 		
-		echo CJSON::encode($models);
+		$ret = array();
+		foreach($models as $key=>$model){
+
+			$ret[$key] = (array)$model->attributes;
+			$ret[$key]['image_url'] = 'a';
+		}
+		echo CJSON::encode($ret);
+	}
+
+	public function actionNew(){
+	//	header('Content-Type: application/json');
+
+		if(isset($_POST) and !empty($_POST)){	
+			$transaction = Yii::app()->db->beginTransaction();
+			try{
+				$image = new ImageUpload;
+				$image->uploaded = CUploadedFile::getInstanceByName('uploaded');
+				if(!$image->validate()){
+					throw new CException("File Yang Anda Upload Tidak valid");
+				}
+				
+
+				$post = new Post();
+				$post->attributes = @$_POST;
+				if(!$post->save()){		
+					throw new CException("Parameter Post Tidak Valid");
+				}
+
+				$model = Yii::app()->image->save($image->uploaded);
+				if(!$model){
+					throw new CException("Post Tidak Valid");
+				}
+				$post->image_id = $model->id;
+				$post->save();
+
+				$transaction->commit();
+				echo CJSON::encode(array('status'=>1));
+				
+			}
+			catch(CException $e){
+				$transaction->rollBack();
+				echo CJSON::encode(array('status'=>0,'msg'=>$e->getMessage()));
+			}
+		}
 	}
 
 	// Uncomment the following methods and override them if needed

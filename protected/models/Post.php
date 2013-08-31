@@ -16,6 +16,7 @@
  * The followings are the available model relations:
  * @property Comment[] $comments
  * @property User $author
+ * @property integer $image_url
  */
 class Post extends CActiveRecord
 {
@@ -116,5 +117,10 @@ class Post extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public $image_url='s';
+	public function afterFind(){
+		$this->image_url = 'as';
 	}
 }
