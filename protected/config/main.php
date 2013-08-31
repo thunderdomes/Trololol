@@ -16,6 +16,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.modules.image.components.*',
+        'application.modules.image.models.Image',
 	),
 
 	'modules'=>array(
@@ -26,7 +28,11 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		
+
+		'image'=>array(
+            'createOnDemand'=>true, // requires apache mod_rewrite enabled
+            'install'=>true, // allows you to run the installer
+        ),
 	),
 
 	// application components
@@ -72,6 +78,14 @@ return array(
 				*/
 			),
 		),
+		'image'=>array(
+            'class'=>'ImgManager',
+            'versions'=>array(
+               	'small'=>array('width'=>120,'height'=>120),
+                'medium'=>array('width'=>320,'height'=>320),
+                'large'=>array('width'=>640,'height'=>640),
+       		),
+       	),
 	),
 
 	// application-level parameters that can be accessed

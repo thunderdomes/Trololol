@@ -21,6 +21,7 @@ class YiinfiniteScroller extends CBasePager {
         'donetext'      => null,
         'itemSelector'  => null,
         'errorCallback' => null,
+    //    'maxPage' => 2,
     );
 
     private $_default_options = array(
