@@ -1,5 +1,7 @@
 /assets
+/framework
 /protected/runtime
 /protected/config/main.php
 /index.php
 /files
+.DS_Store 
