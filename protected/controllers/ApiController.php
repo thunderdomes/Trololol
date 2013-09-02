@@ -50,7 +50,8 @@ class ApiController extends Controller
 				$post = new Post();
 				$post->attributes = @$_POST;
 				if(!$post->save()){		
-					throw new CException("Parameter Post Tidak Valid");
+                                        print_r($post->getErrors());
+					throw new CException("Parameter Post Tidak Valid ");
 				}
 
 				$model = Yii::app()->image->save($image->uploaded);

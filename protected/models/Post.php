@@ -37,7 +37,7 @@ class Post extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, content, status, author_id', 'required'),
-			array('status, create_time, update_time, author_id', 'numerical', 'integerOnly'=>true),
+			array('status, author_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>128),
 			array('tags', 'safe'),
 			// The following rule is used by search().
@@ -75,6 +75,15 @@ class Post extends CActiveRecord
 			'author_id' => 'Author',
 		);
 	}
+        
+        public function beforeSave() {
+            if($this->isNewRecord)
+                $this->create_time = new CDbExpression('now()');
+            else{
+                $this->update_time = new CDbExpression('now()');
+            }
+            return parent::beforeSave();
+        }
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

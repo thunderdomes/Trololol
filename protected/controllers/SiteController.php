@@ -30,6 +30,7 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$criteria = new CDbCriteria;
+                $criteria->order = "create_time desc";
 		$total = Post::model()->count();
 
 		$pages = new CPagination($total);
@@ -38,7 +39,7 @@ class SiteController extends Controller
 
 		$posts = Post::model()->findAll($criteria);
  
-        $this->render('index', array(
+                $this->render('index', array(
 			'posts' => $posts,
 			'pages' => $pages,
 		));
