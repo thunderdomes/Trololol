@@ -38,6 +38,7 @@ class ApiController extends Controller
 	//	header('Content-Type: application/json');
 
 		if(isset($_POST) and !empty($_POST)){	
+			echo "test";
 			$transaction = Yii::app()->db->beginTransaction();
 			try{
 				$image = new ImageUpload;
