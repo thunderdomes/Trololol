@@ -1,4 +1,4 @@
-<form action="http://localhost/busgag/index.php/api/new" method="post"  enctype="multipart/form-data">
+<form action="http://192.241.173.178/Trololol/index.php/api/new" method="post"  enctype="multipart/form-data">
 	title <input name="title" /><br>
 	content <input name="content" /><br>
 	 <input name="author_id" value="1" type="hidden" />
