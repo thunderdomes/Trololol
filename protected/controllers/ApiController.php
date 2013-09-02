@@ -7,7 +7,7 @@ class ApiController extends Controller
 		header('Content-Type: application/json');
 		
 		$criteria = new CDbCriteria();
-		
+		$criteria->order = "create_time desc";
 		$count=Post::model()->count($criteria);
 		$pages=new CPagination($count);
 
