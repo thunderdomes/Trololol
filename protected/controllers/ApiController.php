@@ -38,7 +38,6 @@ class ApiController extends Controller
 	//	header('Content-Type: application/json');
 
 		if(isset($_POST) and !empty($_POST)){	
-
 			$transaction = Yii::app()->db->beginTransaction();
 			try{
 				$image = new ImageUpload;
@@ -66,7 +65,8 @@ class ApiController extends Controller
 				
 			}
 			catch(CException $e){
-				throw $e;
+				$transaction->rollBack();
+				echo CJSON::encode(array('status'=>0,'msg'=>$e->getMessage()));
 			}
 		}
 	}
